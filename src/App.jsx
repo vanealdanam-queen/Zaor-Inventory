@@ -114,6 +114,8 @@ function App() {
       alert('Agrega productos al carrito antes de continuar.');
       return;
     }
+    
+
 
     if (!/^52\d{10}$/.test(WHATSAPP_NUMBER)) {
       alert(
@@ -142,6 +144,48 @@ function App() {
     window.open(url, '_blank', 'noopener,noreferrer');
   }
 
+ // NUEVA FUNCIÓN: COMPRA SIMULADA
+  function comprarSimulado() {
+    if (carrito.length === 0) {
+      alert('El carrito está vacío.');
+      return;
+    }
+
+    const compraValida = carrito.every((item) => {
+      const producto = productos.find((p) => p.id === item.id);
+
+      return (
+        producto &&
+        Number(producto.cantidadDisponible) >= item.cantidad
+      );
+    });
+
+    if (!compraValida) {
+      alert('No hay suficientes existencias para completar la compra.');
+      return;
+    }
+
+    setProductos((actuales) =>
+      actuales.map((producto) => {
+        const comprado = carrito.find(
+          (item) => item.id === producto.id
+        );
+
+        if (!comprado) return producto;
+
+        return {
+          ...producto,
+          cantidadDisponible:
+            Number(producto.cantidadDisponible) - comprado.cantidad
+        };
+      })
+    );
+
+    setCarrito([]);
+
+    alert('¡Compra simulada realizada correctamente!');
+  }
+  
   function limpiarFormulario() {
     setEditando(null);
     setFormulario({
@@ -384,6 +428,11 @@ function App() {
                 <button className="boton-principal" onClick={enviarPedido}>
                   Continuar por WhatsApp
                 </button>
+
+                <button className="boton-principal" onClick={comprarSimulado}>
+  Confirmar compra simulada
+</button>
+
                 <button
                   className="boton-secundario"
                   onClick={() => setVista('catalogo')}
