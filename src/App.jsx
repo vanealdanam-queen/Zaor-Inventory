@@ -7,6 +7,18 @@ import './App.css';
 // Formato: código de país + número, sin + ni espacios.
 const WHATSAPP_NUMBER = '523325100719';
 
+const FOTOS = [
+  ['playera', 'playera.jpeg'], ['short', 'short.jpeg'], ['pantal', 'pantalon.jpeg'],
+  ['top', 'top.jpeg'], ['sudadera', 'sudadera.jpeg'], ['chamarra', 'chamarra.jpeg'],
+  ['legg', 'leggings.jpeg'],
+]
+
+function fotoDe(nombre) {
+  const n = String(nombre).toLowerCase()
+  const f = FOTOS.find(([clave]) => n.includes(clave))
+  return f ? import.meta.env.BASE_URL + 'sitio/img/' + f[1] : null
+}
+
 function App() {
   const [productos, setProductos] = useState(() => {
     try {
@@ -344,7 +356,11 @@ function App() {
             <section className="catalogo">
               {productosFiltrados.map((producto) => (
                 <article className="producto-card" key={producto.id}>
-                  <div className="producto-icono" aria-hidden="true">✦</div>
+                  <div className="producto-icono">
+  {fotoDe(producto.nombre) ? (
+    <img src={fotoDe(producto.nombre)} alt={producto.nombre} />
+  ) : '✦'}
+</div>
                   <p className="producto-marca">{producto.marca}</p>
                   <h3>{producto.nombre}</h3>
                   <p>Talla: {producto.talla}</p>

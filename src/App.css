@@ -2,7 +2,7 @@
 :root {
   font-family: Arial, Helvetica, sans-serif;
   color: #252525;
-  background: #f7f7f5;
+  background: #f4f7fb;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
@@ -31,7 +31,7 @@ button {
 }
 
 .encabezado {
-  background: #171717;
+  background: #1e3a8a;
   color: white;
   padding: 24px 6%;
   display: flex;
@@ -52,7 +52,7 @@ button {
 }
 
 .encabezado .marca-zaor {
-  color: #d4ef63;
+  color: #a3e635;
   font-weight: 800;
   letter-spacing: 5px;
   margin-bottom: 6px;
@@ -67,16 +67,16 @@ button {
 .navegacion button {
   background: transparent;
   color: white;
-  border: 1px solid #555;
+  border: 1px solid #60a5fa;
   border-radius: 8px;
   padding: 11px 14px;
 }
 
 .navegacion button:hover,
 .navegacion button.activo {
-  background: #d4ef63;
-  border-color: #d4ef63;
-  color: #171717;
+  background: #a3e635;
+  border-color: #a3e635;
+  color: #1e3a8a;
 }
 
 .contenido {
@@ -86,7 +86,7 @@ button {
 }
 
 .bienvenida {
-  background: #e9eddf;
+  background: #eaf1ff;
   border-radius: 18px;
   padding: 45px 30px;
   margin-bottom: 28px;
@@ -160,16 +160,16 @@ button {
   width: 100%;
   min-height: 95px;
   border-radius: 10px;
-  background: #eef0e7;
+  background: #eaf1ff;
   display: grid;
   place-items: center;
   font-size: 2.6rem;
-  color: #66752e;
+  color: #2563eb;
   margin-bottom: 14px;
 }
 
 .producto-marca {
-  color: #68762e;
+  color: #2563eb;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 0.78rem;
@@ -216,12 +216,12 @@ button {
 }
 
 .boton-principal {
-  background: #252525;
+  background: #2563eb;
   color: white;
 }
 
 .boton-principal:hover {
-  background: #4c5c1e;
+  background: #1d4ed8;
 }
 
 .boton-secundario {
@@ -276,14 +276,14 @@ button {
   width: 32px;
   height: 32px;
   border: 1px solid #ddd;
-  background: #f7f7f5;
+  background: #f4f7fb;
   border-radius: 6px;
 }
 
 .boton-texto {
   background: transparent;
   border: 0;
-  color: #52621f;
+  color: #2563eb;
   padding: 7px;
   font-weight: bold;
 }
@@ -307,7 +307,7 @@ button {
 }
 
 .form-producto {
-  background: #f7f7f5;
+  background: #f4f7fb;
   border-radius: 12px;
   padding: 20px;
   margin: 22px 0 30px;
@@ -355,7 +355,7 @@ th {
 }
 
 .pie {
-  background: #171717;
+  background: #1e3a8a;
   color: white;
   text-align: center;
   padding: 28px 16px;
@@ -408,4 +408,57 @@ th {
   .seccion {
     padding: 18px;
   }
+}
+
+:root {
+  color-scheme: light;
+}
+
+.encabezado h1 {
+  color: white;
+}
+
+.bienvenida h2 {
+  color: #1e3a8a;
+}
+
+.bienvenida p,
+.bienvenida .etiqueta {
+  color: #252525;
+}
+
+.seccion,
+.seccion p,
+.seccion h3,
+.seccion th,
+.seccion td,
+.seccion label,
+.form-producto label,
+.datos-carrito h3,
+.total-carrito,
+.producto-card h3,
+.producto-card p {
+  color: #252525;
+}
+
+.seccion > h2,
+.form-producto h3 {
+  color: #1e3a8a;
+}
+
+input,
+select {
+  color: #252525;
+}
+
+.producto-icono {
+  overflow: hidden;
+  padding: 0;
+}
+
+.producto-icono img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
 }
